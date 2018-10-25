@@ -1,13 +1,11 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { Grommet, Grid, Box } from 'grommet';
 import { base } from 'grommet/themes';
 import Header from './header';
 import './layout.css';
 
 interface LayoutProps {
-    lol: string;
-    lol2: number;
+    title: string;
 }
 
 interface LayoutState {
@@ -31,39 +29,22 @@ export default class Layout extends React.Component<LayoutProps, LayoutState> {
         console.log(this.props.children);
         return (
             <Grommet full={true} theme={base}>
-                <Helmet>
-                    <title>Isao Ramos</title>
-                    <html lang="en" />
-                    <meta charSet="UTF-8" />
-                    <meta name="author" content="Andres Isao Ramos-Yamasaki" />
-                    <meta name="description" content="Personal Website" />
-                </Helmet>
+                <Header title={this.props.title} />
                 <Grid
                     fill={'true'}
                     areas={[
                         { name: 'nav', start: [0, 0], end: [0, 0] },
-                        { name: 'header', start: [0, 1], end: [0, 1] },
-                        { name: 'main', start: [0, 2], end: [0, 2] },
+                        { name: 'main', start: [0, 1], end: [0, 1] },
                     ]}
-                    rows={['6%', '47%', '47%']}
+                    rows={['5%', '95%']}
                     columns={['full']}
                 >
-                    <Box
-                        gridArea={'nav'}
-                        border={{ color: 'accent-1',side: 'all', size: 'large' }}
-                    >
-                        hello
-                    </Box>
-                    <Box
-                        gridArea={'header'}
-                    >
-                        hello2
-                    </Box>
+                    <Box gridArea={'nav'} background={'dark-1'} />
                     <Box
                         gridArea={'main'}
-                        border={{ color: 'accent-3', side: 'all', size: 'large' }}
+                        align="center"
                     >
-                        hello
+                        {this.props.children}
                     </Box>
                 </Grid>
             </Grommet>

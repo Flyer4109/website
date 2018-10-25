@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Helmet from 'react-helmet'
 
 interface HeaderProps {
     title: string;
@@ -19,6 +20,14 @@ export default class Header extends React.Component<HeaderProps, HeaderState> {
     }
 
     render() {
-        return <p>Hello</p>;
+        return (
+            <Helmet>
+                <title>{this.props.title}</title>
+                <html lang="en" />
+                <meta charSet="UTF-8" />
+                <meta name="author" content="Andres Isao Ramos-Yamasaki" />
+                <meta name="description" content="Personal Website" />
+            </Helmet>
+        );
     }
 }

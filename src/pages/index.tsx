@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Layout from '../components/layout';
 //import Heading from 'grommet/components/Heading';
-import { Button, Box, Grid, Image, Heading } from 'grommet';
+import { Button, Box, Grid, Image, Heading, Carousel } from 'grommet';
 import * as Icons from 'grommet-icons';
 import { base } from 'grommet/themes';
 import japan from '../images/japan.jpg';
@@ -18,20 +18,15 @@ const IndexPage = () => (
             rows={['63%', '37%']}
             columns={['full']}
         >
-            <Box gridArea={'image'}>
-                <Image
-                    src={japan}
-                    fit={'cover'}
-                    alignSelf={'center'}
-                    //style={{ margin: '0' }}
-                />
+            <Box gridArea={'image'} background={'black'}>
+                <Carousel play={4000} fill={true}>
+                    <Image src={japan} fit={'cover'} style={{width: '100%', height: '60vh'}} />
+                    <Image src={japan} fit={'cover'} style={{width: '100%', height: '60vh'}} />
+                    <Image src={japan} fit={'cover'} style={{width: '100%', height: '60vh'}} />
+
+                </Carousel>
             </Box>
-            <Box
-                gridArea={'main'}
-                align="center"
-                //background={'light-3'}
-                //border={{ color: 'light-3', side: 'all', size: 'large' }}>
-            >
+            <Box gridArea={'main'} align="center">
                 <Heading
                     level="1"
                     responsive={true}
